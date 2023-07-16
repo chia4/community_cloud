@@ -1,4 +1,4 @@
-package com.gzu.community_cloud.residence;
+package com.gzu.community_cloud.authentication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class ResidenceApplication {
+public class AuthenticationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ResidenceApplication.class, args);
+        SpringApplication.run(AuthenticationApplication.class, args);
     }
 
 }

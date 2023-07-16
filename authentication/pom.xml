@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gzu.community_cloud</groupId>
-    <artifactId>residence</artifactId>
+    <artifactId>authentication</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>residence</name>
-    <description>residence</description>
+    <name>authentication</name>
+    <description>authentication</description>
     <properties>
         <java.version>8</java.version>
     </properties>
