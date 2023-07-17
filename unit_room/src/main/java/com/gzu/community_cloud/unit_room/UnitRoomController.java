@@ -32,6 +32,45 @@ public class UnitRoomController {
         return unitRoomService.setHouseHolder(unitNumber, roomNumber, username).toString();
     }
 
+    @GetMapping("/feign/delete-unit")
+    @ResponseBody
+    String deleteUnit(@RequestParam String unitNumber) {
+        return unitRoomService.deleteUnit(unitNumber).toString();
+    }
+
+    @GetMapping("/feign/delete-room")
+    @ResponseBody
+    String deleteRoom(@RequestParam String unitNumber, @RequestParam String roomNumber) {
+        return unitRoomService.deleteRoom(unitNumber, roomNumber).toString();
+    }
+
+    @GetMapping("/feign/insert-unit")
+    @ResponseBody
+    String insertUnit(@RequestParam String unitNumber, @RequestParam String caretaker, @RequestParam String cleaner) {
+        return unitRoomService.insertUnit(unitNumber, caretaker, cleaner).toString();
+    }
+
+    @GetMapping("/feign/insert-room")
+    @ResponseBody
+    String insertRoom(@RequestParam String unitNumber, @RequestParam String roomNumber, @RequestParam String houseHolder) {
+        if (houseHolder.equals("")) {
+            houseHolder = null;
+        }
+        return unitRoomService.insertRoom(unitNumber, roomNumber, houseHolder).toString();
+    }
+
+    @GetMapping("/feign/get-unit")
+    @ResponseBody
+    Unit getUnit(@RequestParam String unitNumber) {
+        return unitRoomService.getUnit(unitNumber);
+    }
+
+    @GetMapping("/feign/select-rooms-by-unit-number")
+    @ResponseBody
+    ArrayList<Room> selectRoomsByUnitNumber(@RequestParam String unitNumber) {
+        return unitRoomService.selectRoomsByUnitNumber(unitNumber);
+    }
+
     @GetMapping("/unit-room/get-units")
     @ResponseBody
     public ArrayList<String> getUnits() {

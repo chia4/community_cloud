@@ -23,6 +23,24 @@ public class AnnouncementMessageBoardController {
         this.residenceFeign = residenceFeign;
     }
 
+    @GetMapping("/feign/commit-announcement")
+    @ResponseBody
+    String commitAnnouncement(@RequestParam String content) {
+        return announcementMessageBoardService.commitAnnouncement(content).toString();
+    }
+
+    @GetMapping("/feign/delete-message-board")
+    @ResponseBody
+    String deleteMessageBoard(@RequestParam Integer id) {
+        return announcementMessageBoardService.deleteMessageBoard(id).toString();
+    }
+
+    @GetMapping("/feign/commit-feedback-to-message-board")
+    @ResponseBody
+    String commitFeedbackToMessageBoard(Integer id, String feedback) {
+        return announcementMessageBoardService.commitFeedbackToMessageBoard(id, feedback).toString();
+    }
+
     @GetMapping("/feign/commit-message-board")
     @ResponseBody
     String commitMessageBoard(@RequestParam String username, @RequestParam String content) {

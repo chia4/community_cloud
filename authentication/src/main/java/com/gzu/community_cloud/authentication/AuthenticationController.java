@@ -29,6 +29,17 @@ public class AuthenticationController {
         return (String) session.getAttribute("username");
     }
 
+    @GetMapping("/feign/is-admin")
+    @ResponseBody
+    String isAdmin(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        if (username != null && username.equals(adminUsername)) {
+            return "1";
+        } else {
+            return "0";
+        }
+    }
+
     @GetMapping("/")
     public String index(HttpSession session) {
         String username = (String) session.getAttribute("username");

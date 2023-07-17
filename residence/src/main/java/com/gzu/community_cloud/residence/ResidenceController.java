@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
@@ -46,6 +45,12 @@ public class ResidenceController {
     @ResponseBody
     Residence getResidence(@RequestParam String username) {
         return residenceService.getResidence(username);
+    }
+
+    @GetMapping("/feign/get-residences-by-unit-number-and-room-number")
+    @ResponseBody
+    ArrayList<Residence> getResidencesByUnitNumberAndRoomNumber(String unitNumber, String roomNumber) {
+        return residenceService.getResidencesByUnitNumberAndRoomNumber(unitNumber, roomNumber);
     }
 
     @GetMapping("/residence")

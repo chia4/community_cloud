@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区管理系统 | 管理员</title>
+    <script src="/admin/js/admin.js"></script>
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+
+<body>
+
+<div style="width: 700px;">
+
+    <div style="background-color: #C2AFA1;height: 70px;">
+        <h1 style="line-height: 70px;width: 500px;float: left;margin: 0 0 0 30px;">
+            <a href="/" style="text-decoration: none;color: #475161;">
+                社区管理系统 | 管理员
+            </a>
+        </h1>
+
+        <h4 style="float: right;margin: 40px 10px 0 0;">
+            <a href="/logout">登出</a>
+        </h4>
+    </div>
+
+    <div style="width: 700px;background-color: #BDD1B6;color: red;">
+        <h4 style="line-height: 30px;margin: 0 0 0 30px;" id="error"></h4>
+    </div>
+
+    <div style="background-color: #E3E1D2;float: left;width: 700px;">
+        <div style="line-height: 30px;margin: 30px 0 30px 30px;">
+
+            <div id="announcement-time" style="font-size: small;font-weight: bold;"></div>
+            <div style="font-size: medium;font-weight: bold;" id="announcement">
+                公告: 无
+            </div>
+            <br>
+
+            <form action="/admin/commit-announcement" method="post">
+                <label>
+                    更新公告:
+                    <input type="text" name="content">
+                </label>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+    </div>
+
+    <div style="background-color:#BDD1B6;float:left;width: 700px">
+        <form action="/admin/insert-unit" method="post" style="margin: 30px 0 30px 0;line-height: 30px;">
+
+            <label for="unit-number1" class="form-input">单元号: </label>
+            <input type="text" name="unitNumber" id="unit-number1"><br>
+
+            <label for="caretaker" class="form-input">楼管: </label>
+            <input type="text" name="caretaker" id="caretaker"><br>
+
+            <label for="cleaner" class="form-input">保洁: </label>
+            <input type="text" name="cleaner" id="cleaner"><br>
+
+            <input type="submit" value="插入单元" class="form-button">
+        </form>
+    </div>
+
+    <div style="background-color:#E3E1D2;float:left;width: 700px">
+        <form action="/admin/insert-room" method="post" style="margin: 30px 0 30px 0;line-height: 30px;">
+
+            <label for="unit-number2" class="form-input">单元号: </label>
+            <select name="unitNumber" id="unit-number2">
+                <option value="not-selected">-</option>
+            </select><br>
+
+            <label for="room-number1" class="form-input">房间号: </label>
+            <input type="text" name="roomNumber" id="room-number1"><br>
+
+            <input type="submit" value="插入房间" class="form-button">
+        </form>
+    </div>
+
+    <div style="background-color:#BDD1B6;float:left;width: 700px">
+        <form action="/admin/unit" method="get" style="margin: 30px 0 30px 50px;">
+
+            <label for="unit-number3">单元号: </label>
+            <select name="unitNumber" id="unit-number3">
+                <option value="not-selected">-</option>
+            </select>&nbsp&nbsp
+
+            <input type="submit" value="查询单元" name="type">&nbsp&nbsp
+
+            <input type="submit" value="删除单元" name="type">
+        </form>
+    </div>
+
+    <div style="background-color:#E3E1D2;float:left;width: 700px">
+        <form action="/admin/room" method="get" style="margin: 30px 0 30px 50px;">
+
+            <label for="unit-number4">单元号: </label>
+            <select name="unitNumber" id="unit-number4">
+                <option value="not-selected">-</option>
+            </select>&nbsp&nbsp
+
+            <label for="room-number2">房间号: </label>
+            <select name="roomNumber" id="room-number2">
+                <option value="not-selected">-</option>
+            </select>&nbsp&nbsp
+
+            <input type="submit" value="查询房间" name="type">&nbsp&nbsp
+
+            <input type="submit" value="删除房间" name="type">
+        </form>
+    </div>
+
+    <div style="background-color: #BDD1B6;float: left;width: 700px;line-height: 25px;">
+        <div style="margin: 0 25px;" id="message-board">
+            <h2>留言板</h2>
+            <form action="/admin/commit-feedback-to-message-board" method="post" style="line-height: 30px;">
+
+                <label for="id" class="form-input">id: </label>
+                <input type="text" name="id" id="id"><br>
+
+                <label for="feedback" class="form-input">回复内容: </label>
+                <input type="text" name="feedback" id="feedback"><br>
+
+                <input type="submit" value="提交回复" class="form-button" name="type">&nbsp&nbsp
+
+                <input type="submit" value="删除留言" name="type">
+            </form>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
