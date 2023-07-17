@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区管理系统 | 住户</title>
+    <script src="/residence/js/residence.js"></script>
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+
+<body>
+
+<div style="width: 700px;">
+    <div style="background-color: #C2AFA1;height: 70px;">
+        <h1 style="line-height: 70px; width: 500px;float: left;margin: 0 0 0 30px;">
+            <a href="/static" style="text-decoration: none;color: #475161;">
+                社区管理系统 | 住户
+            </a>
+        </h1>
+
+        <h4 style="float: right;margin: 40px 10px 0 0;">
+            <span id="welcome"></span><a href="/logout">登出</a>
+        </h4>
+    </div>
+
+    <div style="width: 700px;background-color: #E3E1D2;color: red;">
+        <h4 style="line-height: 30px;margin: 0 0 0 30px;" id="error"></h4>
+    </div>
+
+    <div style="background-color: #BDD1B6;float: left;width: 700px;">
+        <div style="line-height: 30px;margin: 30px 0 30px 30px;">
+            <div id="announcement-time" style="font-size: small;font-weight: bold;"></div>
+            <div style="font-size: medium;font-weight: bold;" id="announcement">
+                公告: 无
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color:#E3E1D2;float:left;width: 700px">
+        <div style="margin: 70px 0 70px 50px;">
+            <h2>我的信息</h2>
+            <table id="info">
+                <tr>
+                    <td class="bold-cell">用户名</td>
+                    <td class="bold-cell">姓名</td>
+                    <td class="bold-cell">单元号</td>
+                    <td class="bold-cell">房间号</td>
+                </tr>
+            </table>
+
+            <h2>我的房屋信息</h2>
+            <table id="unit">
+                <tr>
+                    <td class="bold-cell">单元号</td>
+                    <td class="bold-cell">门牌号</td>
+                    <td class="bold-cell">户主</td>
+                </tr>
+            </table>
+            <br>
+            <a href="/residence/set-house-holder">
+                <button type="button">我是户主</button>
+            </a>
+            <br>
+
+            <h2>我的房屋居民</h2>
+            <table id="room">
+                <tr>
+                    <td class="bold-cell">登录用户名</td>
+                    <td class="bold-cell">姓名</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <div style="background-color: #BDD1B6;float: left;width: 700px;line-height: 25px;">
+        <div style="margin: 0 25px;" id="message-board">
+            <h2>留言板</h2>
+
+            <form action="/residence/commit-message-board" method="post" style="line-height: 30px;">
+
+                <label for="content" class="form-input">留言内容: </label>
+                <input type="text" name="content" id="content"><br>
+
+                <input type="submit" value="提交留言" class="form-button">
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

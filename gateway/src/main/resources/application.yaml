@@ -6,13 +6,38 @@ spring:
   cloud:
     gateway:
       routes:
+        # 加入PreserveHostHeader是为了防止重定向到服务自身ip和端口
         - id: residence
           uri: lb://residence
           predicates:
             - Path=/residence/**
           filters:
-            - StripPrefix=1
+            - PreserveHostHeader
+
+        - id: unit-room
+          uri: lb://unit-room
+          predicates:
+            - Path=/unit-room/**
+          filters:
+            - PreserveHostHeader
+
+        - id: admin
+          uri: lb://admin
+          predicates:
+            - Path=/admin/**
+          filters:
+            - PreserveHostHeader
+
+        - id: announcement-message-board
+          uri: lb://announcement-message-board
+          predicates:
+            - Path=/announcement-message-board/**
+          filters:
+            - PreserveHostHeader
+
         - id: authentication
           uri: lb://authentication
           predicates:
             - Path=/**
+          filters:
+            - PreserveHostHeader

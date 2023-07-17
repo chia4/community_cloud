@@ -1,0 +1,33 @@
+table {
+    border-collapse: collapse;
+    width: 500px;
+}
+
+td {
+    border: 1px solid black;
+    height: 30px;
+    text-align: center;
+}
+
+.form-input {
+    width: 90px;
+    display: inline-block;
+    text-align: right;
+}
+
+.form-button {
+    margin-left: 90px;
+}
+
+.warning {
+    color: red;
+    margin-left: 90px;
+}
+
+.title {
+    margin-left: 50px;
+}
+
+.bold-cell {
+    font-weight: bold;
+}

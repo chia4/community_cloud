@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区管理系统 | 登录</title>
+    <script src="/js/login.js"></script>
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+
+<body>
+
+<div style="width: 700px;">
+
+    <div style="background-color: #C2AFA1;height: 70px;">
+        <h1 style="line-height: 70px;width: 500px;float: left;margin: 0 0 0 30px;">
+            <a href="/" style="text-decoration: none;color: #475161;">
+                社区管理系统 | 登录
+            </a>
+        </h1>
+    </div>
+
+    <div style="background-color:#E3E1D2;float:left;width: 700px">
+        <form action="/post-login-data" method="post" id="login-form" style="margin: 70px 0 70px 0;line-height: 30px;">
+
+            <label for="username" class="form-input">用户名: </label>
+            <input type="text" name="username" id="username"><br>
+
+            <label for="password" class="form-input">密码: </label>
+            <input type="password" name="password" id="password"><br>
+
+            <div id="error" class="warning"></div>
+            <br>
+
+            <input type="submit" value="登录" id="submit" class="form-button" disabled="true">
+
+            &nbsp
+            <a href="/register">
+                <button type="button">还没有账号?</button>
+            </a>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+
+</html>
