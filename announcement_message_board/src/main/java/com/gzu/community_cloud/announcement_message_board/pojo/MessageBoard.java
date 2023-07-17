@@ -6,16 +6,18 @@ public class MessageBoard {
     private Integer timestamp;
     private String content;
     private String feedback;
+    private Integer likes;
 
     public MessageBoard() {
     }
 
-    public MessageBoard(Integer id, String username, Integer timestamp, String content, String feedback) {
+    public MessageBoard(Integer id, String username, Integer timestamp, String content, String feedback, Integer likes) {
         this.id = id;
         this.username = username;
         this.timestamp = timestamp;
         this.content = content;
         this.feedback = feedback;
+        this.likes = likes;
     }
 
     public Integer getId() {
@@ -58,6 +60,14 @@ public class MessageBoard {
         this.feedback = feedback;
     }
 
+    public Integer getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
     @Override
     public String toString() {
         return "MessageBoard{" +
@@ -66,6 +76,7 @@ public class MessageBoard {
                 ", timestamp=" + timestamp +
                 ", content='" + content + '\'' +
                 ", feedback='" + feedback + '\'' +
+                ", likes=" + likes +
                 '}';
     }
 }

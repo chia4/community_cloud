@@ -8,4 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface AnnouncementMessageBoardFeign {
     @GetMapping("/feign/commit-message-board")
     String commitMessageBoard(@RequestParam String username, @RequestParam String content);
+
+    @GetMapping("/feign/insert-announcement-like")
+    String insertAnnouncementLike(@RequestParam Integer id, @RequestParam String username);
+
+    @GetMapping("/feign/insert-message-board-like")
+    String insertMessageBoardLike(@RequestParam Integer id, @RequestParam String username);
 }

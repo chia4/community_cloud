@@ -23,6 +23,18 @@ public class AnnouncementMessageBoardController {
         this.residenceFeign = residenceFeign;
     }
 
+    @GetMapping("/feign/insert-announcement-like")
+    @ResponseBody
+    String insertAnnouncementLike(@RequestParam Integer id, @RequestParam String username) {
+        return announcementMessageBoardService.insertAnnouncementLike(id, username).toString();
+    }
+
+    @GetMapping("/feign/insert-message-board-like")
+    @ResponseBody
+    String insertMessageBoardLike(@RequestParam Integer id, @RequestParam String username) {
+        return announcementMessageBoardService.insertMessageBoardLike(id, username).toString();
+    }
+
     @GetMapping("/feign/commit-announcement")
     @ResponseBody
     String commitAnnouncement(@RequestParam String content) {
@@ -50,7 +62,10 @@ public class AnnouncementMessageBoardController {
     @GetMapping("/announcement-message-board/get-latest-announcement")
     @ResponseBody
     public Announcement getLatestAnnouncement() {
-        return announcementMessageBoardService.getLatestAnnouncement();
+        Announcement announcement = announcementMessageBoardService.getLatestAnnouncement();
+        int likes = announcementMessageBoardService.countLikesForAnnouncement(announcement.getId());
+        announcement.setLikes(likes);
+        return announcement;
     }
 
     @GetMapping("/announcement-message-board/get-message-board")
@@ -60,6 +75,8 @@ public class AnnouncementMessageBoardController {
         for (MessageBoard messageBoard : messageBoards) {
             Residence residence = residenceFeign.getResidence(messageBoard.getUsername());
             messageBoard.setUsername(residence.getName());
+            int likes = announcementMessageBoardService.countLikesForMessageBoard(messageBoard.getId());
+            messageBoard.setLikes(likes);
         }
         return messageBoards;
     }

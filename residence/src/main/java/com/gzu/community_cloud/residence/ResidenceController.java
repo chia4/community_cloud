@@ -122,4 +122,30 @@ public class ResidenceController {
         }
         return "redirect:/residence";
     }
+
+    @GetMapping("/residence/like-announcement")
+    public String likeAnnouncement(HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
+                                   @RequestParam Integer id) {
+        String username = (String) httpServletRequest.getAttribute("username");
+        int insertAnnouncementLikeStatus = Integer.parseInt(announcementMessageBoardFeign.insertAnnouncementLike(id, username));
+        if (insertAnnouncementLikeStatus == 0) {
+            redirectAttributes.addAttribute("error", "成功点赞公告");
+        } else {
+            redirectAttributes.addAttribute("error", "发生错误");
+        }
+        return "redirect:/residence";
+    }
+
+    @GetMapping("/residence/like-message-board")
+    public String likeMessageBoard(HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes,
+                                   @RequestParam Integer id) {
+        String username = (String) httpServletRequest.getAttribute("username");
+        int insertMessageBoardLikeStatus = Integer.parseInt(announcementMessageBoardFeign.insertMessageBoardLike(id, username));
+        if (insertMessageBoardLikeStatus == 0) {
+            redirectAttributes.addAttribute("error", "成功点赞公告");
+        } else {
+            redirectAttributes.addAttribute("error", "发生错误");
+        }
+        return "redirect:/residence";
+    }
 }

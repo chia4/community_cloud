@@ -26,4 +26,16 @@ public interface AnnouncementMessageBoardMapper {
 
     @Update("update message_board set feedback = #{feedback} where id = #{id}")
     Integer updateFeedbackToMessageBoard(Integer id, String feedback);
+
+    @Insert("insert into announcement_like (id, username) values (#{id}, #{username})")
+    Integer insertAnnouncementLike(Integer id, String username);
+
+    @Select("select count(*) from announcement_like where id = #{id}")
+    Integer countLikesForAnnouncement(Integer id);
+
+    @Insert("insert into message_board_like (id, username) values (#{id}, #{username})")
+    Integer insertMessageBoardLike(Integer id, String username);
+
+    @Select("select count(*) from message_board_like where id = #{id}")
+    Integer countLikesForMessageBoard(Integer id);
 }

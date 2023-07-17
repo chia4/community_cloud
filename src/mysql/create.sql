@@ -56,6 +56,18 @@ create table message_board
 )
     comment '留言板';
 
+create table message_board_like
+(
+    id       int      not null,
+    username char(20) not null,
+    constraint message_board_like_pk
+        primary key (id, username),
+    constraint message_board_like_message_board_id_fk
+        foreign key (id) references message_board (id) on delete cascade
+
+)
+    comment '留言板点赞记录';
+
 create table announcement
 (
     id        int auto_increment,
@@ -65,3 +77,15 @@ create table announcement
         primary key (id)
 )
     comment '公告';
+
+create table announcement_like
+(
+    id       int      not null,
+    username char(20) not null,
+    constraint announcement_like_pk
+        primary key (id, username),
+    constraint announcement_like_announcement_id_fk
+        foreign key (id) references announcement (id) on delete cascade
+
+)
+    comment '公告点赞记录';

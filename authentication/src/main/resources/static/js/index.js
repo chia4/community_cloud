@@ -7,7 +7,7 @@ window.onload = function () {
             var announcement = JSON.parse(request.responseText);
             if (announcement != null) {
                 date = new Date(announcement["timestamp"] * 1000)
-                $("announcement-time").innerText = date.toLocaleString()
+                $("announcement-time").innerHTML = "赞:&nbsp;" + announcement["likes"] + "&nbsp;&nbsp;|&nbsp;&nbsp;" + date.toLocaleString();
                 $("announcement").innerText = "公告: " + announcement["content"];
             }
         }
@@ -31,7 +31,7 @@ function getMessageBoard() {
                 var date = new Date(response[set]["timestamp"] * 1000).toLocaleString();
                 var html = messageBoardDiv;
                 html += "<span style='font-weight: bold;font-size: small;'>" + response[set]["username"] + "</span><br>"
-                html += "<span style='font-size: small;'>id: " + response[set]["id"] + "&nbsp;&nbsp;|&nbsp;&nbsp;" + date + "</span><br>"
+                html += "<span style='font-size: small;'>" + "赞:&nbsp;" + response[set]["likes"] + "&nbsp;&nbsp;|&nbsp;&nbsp;id:&nbsp;" + response[set]["id"] + "&nbsp;&nbsp;|&nbsp;&nbsp;" + date + "</span><br>"
                 html += response[set]["content"];
                 if (response[set]["feedback"] != null) {
                     html += "<br><br><span style='color: red;font-weight: bold;font-size: small;'>回复: " + response[set]["feedback"] + "</span><br>"
