@@ -42,6 +42,12 @@ public class ResidenceController {
         return residenceService.register(username, password, name, unitNumber, roomNumber).toString();
     }
 
+    @GetMapping("/feign/get-residence")
+    @ResponseBody
+    Residence getResidence(@RequestParam String username) {
+        return residenceService.getResidence(username);
+    }
+
     @GetMapping("/residence")
     public String index() {
         return "forward:/residence/residence.html";
